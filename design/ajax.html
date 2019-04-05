@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax</title>
+</head>
+<style>
+    html, body {
+        background-color: #24b7ff;
+        text-align: center;
+
+    }
+
+    input {
+        border: 1px solid #ffffff;
+        padding: 5px 10px;
+        margin: 10px;
+    }
+
+    button {
+        padding: 5px 10px;
+        margin-left: 10px;
+        border-bottom-color: mintcream;
+    }
+
+</style>
+
+<body>
+
+<input id="text" type="text" name="pseudo" placeholder="Ex : Nom" required><br>
+<input id="email" type="email" name="email" placeholder="Ex : email@.com" required><br>
+<input id="password" type="password" name="password" placeholder="Ex : *****" required><br>
+<button id="btn" type="submit">Connecté</button>
+
+<script>
+
+    let text     = document.querySelector("#text")
+    let email    = document.querySelector("#email")
+    let password = document.querySelector("#password")
+    let btn      = document.querySelector("#btn")
+
+    btn.addEventListener('click',function () {
+        let forms_text = text.value
+        let forms_email = email.value
+        let forms_password = password.value
+
+        let list = {
+            forms_text,
+            forms_email,
+            forms_password
+
+
+
+
+        }
+        console.log(list)
+    })
+
+
+</script>
+</body>
+</html>
+if (!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_confirm'])
+&& !empty($_POST['date'])){
+
+//VARIABLE
+$pseudo       = $_POST['pseudo'];
+$email        = $_POST['email'];
+$password     = $_POST['password'];
+$pass_confirm = $_POST['password_confirm'];
+$date_time    = $_POST['date'];
+
+$datetime1 = date_create('today');
+$datetime2 = date_create($_POST['date']);
+
+$interval = date_diff($datetime1, $datetime2);
+
+return $interval->y;
